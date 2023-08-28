@@ -28,18 +28,22 @@ plt.show()
 slope = model.coef_[0]
 intercept = model.intercept_
 print("Slope:", slope[0])
-print("Intercept:", intercept[0])
+print("Intercept:", intercept)
 
-# Computing SSE, SST & SSR and printing them
 Y_pred = model.predict(X)
+
 # Calculate the residuals
 residuals = (Y - Y_pred).to_numpy()
+
 # Calculate SSE (Sum of Squares Residual)
 sse = np.sum(residuals**2)
+
 # Calculate SST (Total Sum of Squares)
 sst = np.sum((Y.to_numpy() - np.mean(Y.to_numpy()))**2)
+
 # Calculate SSR (Sum of Squares Explained)
 ssr = sst - sse
+
 print("SSE:", sse)
 print("SSR:", ssr)
 print("SST:", sst)

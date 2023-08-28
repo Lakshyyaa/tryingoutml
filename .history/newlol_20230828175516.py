@@ -36,10 +36,13 @@ Y_pred = model.predict(X)
 residuals = (Y - Y_pred).to_numpy()
 # Calculate SSE (Sum of Squares Residual)
 sse = np.sum(residuals**2)
+
 # Calculate SST (Total Sum of Squares)
 sst = np.sum((Y.to_numpy() - np.mean(Y.to_numpy()))**2)
+
 # Calculate SSR (Sum of Squares Explained)
 ssr = sst - sse
+
 print("SSE:", sse)
 print("SSR:", ssr)
 print("SST:", sst)

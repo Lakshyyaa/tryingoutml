@@ -3,9 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression 
 df=pd.read_csv('Weather.csv')
-pd.set_option('display.max_rows', None)
 
-# Is there a relationship between the daily minimum and maximum temperature? Can you predict the maximum temperature given the minimum temperature?
 # Predicting the max temp using the minimum temp
 # Max Temperature is the Response variable
 # Min Temperature is the Predictor variable
@@ -27,19 +25,23 @@ plt.show()
 # Printing the parameters of the regression line
 slope = model.coef_[0]
 intercept = model.intercept_
-print("Slope:", slope[0])
-print("Intercept:", intercept[0])
+print("Slope:", slope)
+print("Intercept:", intercept)
 
-# Computing SSE, SST & SSR and printing them
+
+
+
+# 
 Y_pred = model.predict(X)
+
 # Calculate the residuals
-residuals = (Y - Y_pred).to_numpy()
+residuals = Y - Y_pred
+
 # Calculate SSE (Sum of Squares Residual)
 sse = np.sum(residuals**2)
+
 # Calculate SST (Total Sum of Squares)
-sst = np.sum((Y.to_numpy() - np.mean(Y.to_numpy()))**2)
+sst = np.sum((Y - np.mean(Y))**2)
+
 # Calculate SSR (Sum of Squares Explained)
 ssr = sst - sse
-print("SSE:", sse)
-print("SSR:", ssr)
-print("SST:", sst)

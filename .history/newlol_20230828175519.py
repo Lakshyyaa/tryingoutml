@@ -40,6 +40,7 @@ sse = np.sum(residuals**2)
 sst = np.sum((Y.to_numpy() - np.mean(Y.to_numpy()))**2)
 # Calculate SSR (Sum of Squares Explained)
 ssr = sst - sse
+
 print("SSE:", sse)
 print("SSR:", ssr)
 print("SST:", sst)
