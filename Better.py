@@ -1,6 +1,6 @@
 # Team Members:
 # Lakshya Singh 21ucs115
-# Amal Thomas 21ucs
+# Amal Thomas 21ucs016
 
 # Is there a relationship between the water temperature (deg C) and salinity? 
 # Can we predict the Temperature of water (deg C) given the salinity?
