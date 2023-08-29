@@ -1,26 +1,30 @@
+# Is there a relationship between the water temperature (deg C) and salinity? 
+# Can we predict the Temperature of water (deg C) given the salinity?
+# Predicting the Temperature using the salinity
+# Temperature is the Response variable
+# Salinity is the Predictor variable
+
 import pandas as pd 
 import numpy as np 
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression 
-df=pd.read_csv('Weather.csv')
+
+# Dataset source: https://www.kaggle.com/datasets/sohier/calcofi
+df=pd.read_csv('bottled.csv' ,low_memory=False)
 pd.set_option('display.max_rows', None)
 
-# Is there a relationship between the daily minimum and maximum temperature? Can you predict the maximum temperature given the minimum temperature?
-# Predicting the max temp using the minimum temp
-# Max Temperature is the Response variable
-# Min Temperature is the Predictor variable
-
-X = df[['MinTemp']]
-Y = df[['MaxTemp']]
+# Creating a linear regression model with X as Salinity and Y as Temperature
+X = df[['Salnty']]
+Y = df[['T_degC']]
 model = LinearRegression()
 model.fit(X, Y)
 
 # Showing a scatter plot with the regression line
 plt.scatter(X, Y, alpha=0.5, label='Data')
-plt.plot(X, model.predict(X), color='red', label='Linear Regression')
+plt.plot(X, model.predict(X), color='red', label='Regression Line')
 plt.title('Scatter Plot with Linear Regression Line')
-plt.xlabel('Min Temperature')
-plt.ylabel('Max Temperature')
+plt.xlabel('Salinity')
+plt.ylabel('Temperature')
 plt.legend()
 plt.show()
 
